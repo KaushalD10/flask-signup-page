@@ -1,0 +1,18 @@
+body {
+}
+p{
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;        
+} 
+input{
+    height:30px;
+    border-width: 0.5px;
+    margin-right: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    font-family: 'Poppins', sans-serif;
+          
+}

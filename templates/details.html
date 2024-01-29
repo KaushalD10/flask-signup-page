@@ -1,0 +1,78 @@
+<html>
+    <title>Details page</title>
+    <meta charset="UTF-8">
+
+    <style>
+        body{
+        }
+        p{
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;        
+        } 
+        input{
+            height:30px;
+            border-width: 0.5px;
+            margin-right: 20px;
+            border-radius: 10px;
+            border-style: solid;
+            font-family: 'Poppins', sans-serif;        
+        }
+        </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins&display=swap" rel="stylesheet">
+
+    <script>
+        function detailsValidation(){
+            var nextButton = document.getElementById("button_id_two");
+
+            var phoneNum = document.getElementById("phone_id").value;
+            var emailAddress = document.getElementById("email_id").value;
+            var ssn = document.getElementById("ssn_id").value;
+
+            var phoneNumErrorMessage = document.getElementById("phone_num_character_limit");
+            var emailAddressErrorMessage = document.getElementById("email_address_character_limit");
+            var ssnErrorMessage = document.getElementById("ssn_character_limit");
+
+            if (phoneNum.length > 15){
+                phoneNumErrorMessage.style.visibility = "visible";
+                nextButton.disabled = true;
+            }
+            else if (emailAddress.length > 30){
+                emailAddressErrorMessage.style.visibility = "visible";
+                nextButton.disabled = true;
+            }
+
+            else if (ssn.length > 9){
+                ssnErrorMessage.style.visibility = "visible";
+                nextButton.disabled = true;
+            }
+            else{
+                phoneNumErrorMessage.style.visibility = "hidden";
+                emailAddressErrorMessage.style.visibility = "hidden";
+                ssnErrorMessage.style.visibility = "hidden";
+                nextButton.disabled = false;
+            }
+        }
+    </script>
+<h1>Details page</Details></h1>
+<span style="visibility: hidden" id = "phone_num_character_limit">Phone Number Must Be Under 15 Characters!</span>
+<br>
+<span style="visibility: hidden" id = "email_address_character_limit">Email Address Must Be Under 30 Characters!</span>
+<br>
+<span style="visibility: hidden" id = "ssn_character_limit">SSN Must Be Under 9 Characters!</span>
+  
+<form action="/user/v1/createDetails" method = "post">
+    <p>Enter your phone number:</p>
+    <input type="text" name = "phone_num" id = "phone_id" onblur="detailsValidation()">
+    <p>Enter your email address:</p>
+    <input type="text" name = "email_address" id = "email_id" onblur="detailsValidation()" >
+    <p>Enter SSN:</p>
+    <input type="text" name = "ssn" id = "ssn_id" onblur="detailsValidation()">
+
+    <input type="submit" id = "button_id_two" value="Next Page">
+</form>
+</html>

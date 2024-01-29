@@ -1,0 +1,68 @@
+
+<html>
+    <title>Sign Up Page</title>
+
+    <style>
+        body{
+        }
+        p{
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;        
+        } 
+        input{
+            height:30px;
+            border-width: 0.5px;
+            margin-right: 20px;
+            border-radius: 10px;
+            border-style: solid;
+            font-family: 'Poppins', sans-serif;        
+        }
+        </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins&display=swap" rel="stylesheet">
+
+    <style></style>
+<script>
+    function nameValidation(){
+        var nextButton = document.getElementById("button_id");
+        var firstName = document.getElementById("first_name_id").value;
+        var lastName = document.getElementById("last_name_id").value;
+        var firstNameErrorMessage = document.getElementById("first_name_character_limit");
+        var lastNameErrorMessage = document.getElementById("last_name_character_limit");
+        if (firstName.length > 20){
+            firstNameErrorMessage.style.visibility = "visible";
+            nextButton.disabled = true;
+        }
+        else if (lastName.length > 20){
+            lastNameErrorMessage.style.visibility = "visible";
+            nextButton.disabled = true;
+        }
+        else{
+            firstNameErrorMessage.style.visibility = "hidden";
+            lastNameErrorMessage.style.visibility = "hidden";
+            nextButton.disabled = false;
+        }
+    }
+</script>
+<h1>Sign Up Page</h1>
+<br>
+<br>
+
+<span style="visibility: hidden" id = "first_name_character_limit">First Name Must Be Under 20 Characters!</span>
+<span style="visibility: hidden" id = "last_name_character_limit">Last Name Must Be Under 20 Characters!</span>
+
+<form action="/user/v1/createName" method = "post">
+
+    <p>Enter name:</p>
+    <br>
+    <input type="text" name = "first_name" id = "first_name_id" onblur = "nameValidation()">
+    <input type="text" name = "last_name" id = "last_name_id" onblur = "nameValidation()" >
+    <input type="submit" id = "button_id" value="Next Page"  >
+</form>
+</html>
+
