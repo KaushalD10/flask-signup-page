@@ -31,7 +31,7 @@ app.config['MAIL_USE_TLS'] = False
 
 app.config['MAIL_USE_SSL'] = True
 
-app.config['MAIL_USERNAME'] = 'kduddugunta@gmail.com'
+app.config['MAIL_USERNAME'] = 'your@gmail.com'
 
 app.config['MAIL_PASSWORD'] = "srdw hptt sxwy pklq"
 
