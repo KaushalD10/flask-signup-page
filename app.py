@@ -21,7 +21,7 @@ USER_INFO = (
 app = Flask(__name__)
 app.secret_key = 'secret_key'
 
-app.config['SECRET_KEY'] = "tsfyguaistyatuis589566875623568956"
+app.config['SECRET_KEY'] = "Enter Secret Key here"
 
 app.config['MAIL_SERVER'] = "smtp.googlemail.com"
 
